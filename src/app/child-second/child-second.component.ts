@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-child-second',
@@ -6,17 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./child-second.component.css']
 })
 export class ChildSecondComponent implements OnInit {
-  test: any = "Hello work";
+  public test: any = "Hello work";
+  count: number = 0;
   constructor() { }
 
   ngOnInit() {
   }
 
   countIn() {
+    this.count++;
   }
 
   countDe() {
-    
+    this.count--;
   }
 
 }

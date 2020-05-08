@@ -4,7 +4,7 @@ import { Directive, ElementRef } from '@angular/core';
   selector: '[appChangeColor]'
 })
 export class ChangeColorDirective {
-
+  demoTest: any = "demoTest";
   constructor(
     public element: ElementRef
   ) { 
@@ -12,12 +12,12 @@ export class ChangeColorDirective {
     
   }
 
-  checkUiShopType(type) {
-    console.log('ChangeColorDirective checkUiShopType',type);
-    // if (shopType) {
-    //   this.element.nativeElement.style.background = "red";
-    // } else {
-    //   this.element.nativeElement.style.background = "green";
-    // }
-  }
+  ngAfterViewInit() {
+    // this.element.nativeElement.style.color = 'red';
+   }
+
+   onChangeColor(color) {
+    this.element.nativeElement.style.color = color;
+   }
+  
 }

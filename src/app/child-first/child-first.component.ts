@@ -8,22 +8,26 @@ import { ChangeColorDirective } from '../change-color.directive';
   styleUrls: ['./child-first.component.css']
 })
 export class ChildFirstComponent implements OnInit ,AfterViewInit  {
-  @ViewChild(ChangeColorDirective) onChangeColor;
+  @ViewChild(ChangeColorDirective) ChangeColorDirective : ChangeColorDirective;
+
+  // @ViewChild(ChildSecondComponent) child : ChildSecondComponent;
   constructor() { }
 
   ngOnInit() {
-   
+    // console.log('ngOnInit',this.child.test);
   }
   ngAfterViewInit() {
-    // console.log('ngAfterViewInit',this.onCount.test);
-    // this.changeColor();
+    
+    
     
   }
 
-  changeColor() {
+  changeColor(color) {
     // console.log('changeColor',this.onChangeColor.checkUiShopType('checkUiShopType'));
-    //  this.changeColor
+     this.ChangeColorDirective.onChangeColor(color)
   }
+
+  
 
 
 }

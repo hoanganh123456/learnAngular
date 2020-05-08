@@ -31,5 +31,9 @@
 <p> {{ name | lowercase | demo : 'mr' : 'abc' }} </p>
 <p> {{ name | titlecase }} </p>
 <p>{{ objectDemo.CourseFee| currency : 'VND'}}</p>  -->
-
+<app-child-first></app-child-first>
+<button (click)="toggle()">toggle</button>
+<div [@openClose]="isOpen ? 'open' : 'closed'" class="open-close-container">
+    <p>The box is now {{ isOpen ? 'Open' : 'Closed' }}!</p>
+</div>
 

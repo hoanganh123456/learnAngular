@@ -10,12 +10,33 @@ import {
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  animations: [
+    // animation triggers go here
+    trigger('openClose', [
+      // ...
+      state('open', style({
+        height: '200px',
+        opacity: 1,
+        backgroundColor: 'yellow'
+      })),
+      state('closed', style({
+        height: '100px',
+        opacity: 0.5,
+        backgroundColor: 'green'
+      })),
+      transition('open <=> closed', [
+        animate('1s')
+      ]),
+    ]),
+  ]
 })
 export class AppComponent implements OnInit {
   @ViewChild('demo') demoTest: ElementRef;
   fileUpLoad: any;
   imageURL: any;
+  isOpen = true;
+
 
   title = 'angularExample';
   students: any[] = [
@@ -40,7 +61,6 @@ export class AppComponent implements OnInit {
         DOB: '4/12/1991', Gender: 'Male', CourseFee: 9876.54
     }
   ];
-  isOpen = true;
   name:string = "nguyễn văn a";
   birthday = new Date(1988, 3, 15); // April 15, 1988
   objectDemo =  {
@@ -72,6 +92,11 @@ export class AppComponent implements OnInit {
   clear() {
     this.demoTest.nativeElement.value = "";
     this.imageURL = "";
+  }
+
+
+  toggle() {
+    this.isOpen = !this.isOpen;
   }
 
 

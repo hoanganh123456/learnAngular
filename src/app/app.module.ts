@@ -9,6 +9,7 @@ import { ChildFirstPipe } from './child-first.pipe';
 import { ChildFirstComponent } from './child-first/child-first.component';
 import { ChildSecondComponent } from './child-second/child-second.component';
 import { ChangeColorDirective } from './change-color.directive';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { ChangeColorDirective } from './change-color.directive';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule
   ],
