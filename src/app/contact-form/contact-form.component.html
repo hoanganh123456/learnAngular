@@ -1,0 +1,30 @@
+<form (ngSubmit)="onSubmit(form)" #form="ngForm" class="row justify-content-md-center">
+  <div class="col-md-8">
+    <div class="form-group">
+      <label for="email">Email address:</label>
+      <input type="email" class="form-control" id="email" name="email" ngModel>
+    </div>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" ngModel required>
+    </div>
+    <div *ngIf="form.controls.name?.errors?.required && form.controls.name?.touched" class="alert alert-danger" role="alert"> name is required</div>
+    <fieldset  ngModelGroup="social"> 
+      <div class="form-group">
+        <label for="facebook">Facebook</label>
+        <input type="url" class="form-control" id="facebook" name="facebook" ngModel>
+      </div>
+      <div class="form-group">
+        <label for="instagram">Instagram</label>
+        <input type="url" class="form-control" id="instagram" name="instagram" ngModel >
+      </div>
+    </fieldset>
+   
+    <div class="form-group">
+      <label for="tel">tel</label>
+      <input type="tel" class="form-control" id="tel" name="tel" ngModel>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Primary</button>
+  </div>
+
+</form>

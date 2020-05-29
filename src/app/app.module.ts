@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +10,8 @@ import { ChildFirstComponent } from './child-first/child-first.component';
 import { ChildSecondComponent } from './child-second/child-second.component';
 import { ChangeColorDirective } from './change-color.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ContactFormComponent } from './contact-form/contact-form.component';
+import { ContactReactiveFormComponent } from './contact-reactive-form/contact-reactive-form.component';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ChildFirstPipe,
     ChildFirstComponent,
     ChildSecondComponent,
-    ChangeColorDirective
+    ChangeColorDirective,
+    ContactFormComponent,
+    ContactReactiveFormComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

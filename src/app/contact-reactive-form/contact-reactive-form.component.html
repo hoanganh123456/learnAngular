@@ -1,0 +1,47 @@
+<form (ngSubmit)="onSubmit(form)" [formGroup]="rfContact" class="row justify-content-md-center">
+  <div class="col-md-8">
+    <div class="form-group">
+      <label for="email">Email address:</label>
+      <input type="email" class="form-control" id="email" name="email" formControlName="email">
+    </div>
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" formControlName="name">
+    </div>
+    <div *ngIf="rfContact.get('name')?.errors?.required && rfContact.controls.name?.touched" class="alert alert-danger" role="alert">name is required</div>
+    <fieldset formGroupName="social"> 
+      <div class="form-group">
+        <label for="facebook">Facebook</label>
+        <input type="url" class="form-control" id="facebook" name="facebook" formControlName="facebook">
+      </div>
+      <div class="form-group">
+        <label for="instagram">Instagram</label>
+        <input type="url" class="form-control" id="instagram" name="instagram" formControlName="instagram"> 
+      </div>
+    </fieldset>
+   
+    <div formArrayName="tels" *ngIf="tels.controls.length">
+      <div class="form-group row" *ngFor="let c of tels.controls; index as i">
+        <label for="example-tel-input" class="col-md-2 col-form-label">Tel:</label>
+        <div class="col-md-12">
+          <input class="form-control" type="tel" id="example-tel-input" [formControlName]="i">
+          <div class="text-right">
+            <button class="btn btn-info" (click)="addTel()">+</button>
+            <button class="btn btn-danger" (click)="removeTel(i)" *ngIf="tels.controls.length > 1">-</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Primary</button>
+  </div>
+
+</form>
+<!-- <p>{{ rfContact.controls.name.value | json}}</p><br> -->
+
+<input type="search" class="form-control" id="search" name="search" [formControl]="searchControl">
+<!-- <p>{{ rfContact.get('name').value }}</p><br> -->
+<!-- <p>{{ rfContact.get('social.facebook').value }}</p><br> -->
+<pre>{{ rfContact.value | json }}</pre><br>
+
+
+
