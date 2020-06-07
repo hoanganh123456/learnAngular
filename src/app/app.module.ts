@@ -12,6 +12,8 @@ import { ChangeColorDirective } from './change-color.directive';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { ContactReactiveFormComponent } from './contact-reactive-form/contact-reactive-form.component';
+import { CountService } from './count.service';
+import { TestService } from './test.service';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,10 @@ import { ContactReactiveFormComponent } from './contact-reactive-form/contact-re
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    CountService,
+    TestService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

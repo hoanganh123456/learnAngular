@@ -1,15 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators,FormBuilder, FormArray } from '@angular/forms';
+import { CountService } from '../count.service';
 
 @Component({
   selector: 'app-contact-reactive-form',
   templateUrl: './contact-reactive-form.component.html',
-  styleUrls: ['./contact-reactive-form.component.css']
+  styleUrls: ['./contact-reactive-form.component.css'],
+  providers: [
+    CountService
+  ]
 })
 export class ContactReactiveFormComponent implements OnInit {
   rfContact: FormGroup;
   searchControl = new FormControl();
-  constructor(private fb: FormBuilder) { 
+  number: any;
+  constructor(private fb: FormBuilder,public countService: CountService) { 
   }
 
   ngOnInit() {
@@ -56,6 +61,10 @@ export class ContactReactiveFormComponent implements OnInit {
   
   removeTel(index: number) {
     this.tels.removeAt(index);
+  }
+
+  onClick() {
+    this.number = this.countService.onCount();
   }
 
 

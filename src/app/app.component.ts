@@ -7,6 +7,8 @@ import {
   transition,
   // ...
 } from '@angular/animations';
+import { CountService } from './count.service';
+import { TestService } from './test.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -36,6 +38,8 @@ export class AppComponent implements OnInit {
   fileUpLoad: any;
   imageURL: any;
   isOpen = true;
+  number: any;
+  demo: string;
 
 
   title = 'angularExample';
@@ -67,11 +71,12 @@ export class AppComponent implements OnInit {
     ID: 'std105', Name: 'SamBIt SataPATHY',
     DOB: '4/12/1991', Gender: 'Male', CourseFee: 9876.54
   }
-  constructor() {
+  constructor(public countService: CountService, private testService: TestService) {
     
   }
   ngOnInit() {
     // this.demo.nativeElement.value = '';
+    this.demo = this.testService.demo;
   }
   changeColor() {
     // this.demoTest.nativeElement.style.color = "red"
@@ -97,6 +102,10 @@ export class AppComponent implements OnInit {
 
   toggle() {
     this.isOpen = !this.isOpen;
+  }
+
+  onClick() {
+    this.number = this.countService.onCount();
   }
 
 
